@@ -1,0 +1,17 @@
+.titulo{
+	text-align: center;
+
+
+
+  font-style:italic;
+  font-weight:bold;
+  font-size:2em;
+  font-color:#ffffff;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+}
+
+
+
+.imagen{
+	padding-top: 50px;
+}

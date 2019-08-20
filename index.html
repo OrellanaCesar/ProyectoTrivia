@@ -2,161 +2,22 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-  <title></title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>Trivia</title>
 </head>
 <body>
-  <div id="test">
-    
+  <h1 class="titulo">Universidad Nacional de Salta</h1>
+  <h1 class="titulo">Juego Trivia</h1>
+
+  <div align="center">
+  <img src="img/logo.jpg" alt="UNSa" class="imagen" />
   </div>
 
+  <div>
+  <button onclick="location.href='juego.html'">Comenzar a Jugar</button>    
+  </div>
 </body>
 </html>
-<script   src="js/jquery.min.js" ></script>
-
-<!--<script>
-$(function() 
-{
-$("#button").click( function()
-{
-   //var TXT_URL = 'https://www.mozilla.org/media/MPL/2.0/index.815ca599c9df.txt';
-   var TXT_URL = $("#input-url").val();
-
-    $.ajax
-    (
-      {
-          url : TXT_URL,
-      dataType: "text",
-      success : function (data) 
-      {
-              $(".text").html("<pre>"+data+"</pre>");
-      }
-    }
-  );
-   });
-});
-
-</script>
-Ingrese una url válida:<input type="text" id="input-url" size="50" value="https://www.mozilla.org/media/MPL/2.0/index.815ca599c9df.txt"></input>
-
-<input type="button" id="button" value="Ver .txt"></input>
-<div class="text">
-  <hr />
-  <h2>Texto:</h2>
-</div>-->
-
-<script >
-
-function traducir(vector){
-  for (var i = 0; i < vector.length; i++) {
-    vector[i] =vector[i].replace('¿','\u00BF');
-
-    vector[i] = vector[i].replace('á','\u00E1');
-    vector[i] = vector[i].replace('é','\u00E9');
-    vector[i] = vector[i].replace('í','\u00ED');
-    vector[i] = vector[i].replace('ó','\u00f3');
-    vector[i] = vector[i].replace('ú','\u00fa');
-
-    vector[i] = vector[i].replace('Á','\u00c1');
-    vector[i] = vector[i].replace('É','\u00c9');
-    vector[i] = vector[i].replace('Í','\u00cd');
-    vector[i] = vector[i].replace('Ó','\u00d3');
-    vector[i] = vector[i].replace('Ú','\u00da');
-
-    vector[i] = vector[i].replace('ñ','\u00f1');
-    vector[i] = vector[i].replace('Ñ','\u00d1');
-
-  }
-  
-  return vector;
-
-}
-
-function crearmatriz(matriz){
-  for (var i = 0; i < matriz.length ; i++) {
-    var cadena = matriz[i];
-    cadena = cadena.split(",");
-    matriz[i] = cadena;
-  }
-}
-
-function mezclar(vector,matriz){
-  for (var k = 100; k >= 0; k--) {
-
-    var i = Math.floor( Math.random()*(4-0) + 0);
-    var j = Math.floor( Math.random()*(4-0) + 0);
-
-    var aux = vector[i];
-    var aux2 = matriz[i];
-    console.log("mezclar", vector[i],matriz[i]);  
-    vector[i] = vector[j];
-    matriz[i] = matriz[j];
-    
-    vector[j] = aux;
-    matriz[j] = aux2;
-
-  }
-  
-}
-
-function CreaIndice(respuestas) {
-  var ind = Array();
-  for (var i=0; i<respuestas.length;i++){
-    vec = Array(0,1,2,3);
-    ind.push(vec);
-  }
-  return ind;
-}
-
-function MezclarRespuestas(vector,matriz) {
-  for (var l = 0; l < matriz.length; i++) {
-    
-    for (var k = 100; k >= 0; k--) {
-
-      var i = Math.floor( Math.random()*(4-0) + 0);
-      var j = Math.floor( Math.random()*(4-0) + 0);
-
-      var aux = vector[l][i];
-      var aux2 = matriz[l][i];
-      
-      vector[l][i] = vector[l][j];
-      matriz[l][i] = matriz[l][j];
-      
-      vector[l][j] = aux;
-      matriz[l][j] = aux2;
-
-  }    
-}
-}
 
 
 
-var preguntas = Array("¿Cuántos minutos tiene una hora?","¿Cuántos minutos tiene una día?","¿Cuántas patas tiene una araña?","¿Cuál es el río más caudaloso del mundo?");
-var matrizrespuestas = Array();
-
-var respuestas = Array("60,33,45,Ninguno de los anteriores","1440,1402,1200,Ninguno de los anteriores","ocho,seis,cuatro,Ninguno de los anteriores","Amazonas,Bermejo,Pilcomayo,Ninguno de los anteriores");
-
-
-
-preguntas = traducir(preguntas);
-respuestas = traducir(respuestas);
-crearmatriz(respuestas);
-
-mezclar(preguntas,respuestas);
-console.log(preguntas,respuestas);
-var indice = CreaIndice(respuestas);
-MezclarRespuestas(indice,respuestas);
-console.log(respuestas,indice);
-
-
-for (var i = 0; i < preguntas.length ; i++) {
-
-  var palabra = String(preguntas[i]);
-  //palabra = decode_utf8(palabra);
-  var parrafo = document.createElement("p");
-  var contenido = document.createTextNode(palabra);
-  parrafo.appendChild(contenido);
-  var contenedor = document.getElementById("test");
-  contenedor.appendChild(parrafo);
-
-}
-</script>
