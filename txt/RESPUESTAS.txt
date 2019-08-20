@@ -1,0 +1,4 @@
+60,33,45,Ninguno de los anteriores
+1440,1402,1200,Ninguno de los anteriores
+ocho,seis,cuatro,Ninguno de los anteriores
+Amazonas,Bermejo,Pilcomayo,Ninguno de los anteriores
