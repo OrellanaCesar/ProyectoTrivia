@@ -3,15 +3,27 @@
 
 
 
-  font-style:italic;
-  font-weight:bold;
-  font-size:2em;
-  font-color:#ffffff;
-  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+  font-style:italic !important;
+  font-weight:bold !important;
+  font-size:2em !important;
+  color:#606265 !important;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
+.margen{
+	padding-top: 50px;
+
+}
+
+.margenboton{
+	padding-top: 50px;
+	padding-bottom: 50px;
+
+}
 
 
 .imagen{
 	padding-top: 50px;
+	width: 300px;
+	height: 600px;
 }
