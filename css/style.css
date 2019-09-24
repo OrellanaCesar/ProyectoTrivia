@@ -10,6 +10,18 @@
   font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
+.titulo-hora{
+	text-align: center;
+
+
+
+  font-style:italic !important;
+  font-weight:bold !important;
+  font-size:80px !important;
+  color:#606265 !important;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
+}
+
 .margen{
 	padding-top: 50px;
 
@@ -26,4 +38,27 @@
 	padding-top: 50px;
 	width: 300px;
 	height: 600px;
+}
+
+.opcion{
+  font-size: 40px;
+  width: 50%;
+  height: 350px;
+  background-color: #a2f5b1;
+}
+
+.bloque-pregunta{
+    padding-bottom: 100px;
+}
+
+.pregunta{
+  font-size: 80px !important;
+
+}
+
+.color-barra{
+  background-color: #28a745 !important;
+}
+.barra{
+  height: 4rem !important;
 }
