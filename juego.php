@@ -59,7 +59,7 @@ MezclarPreguntas($preguntas,$respuestas);
 <?php echo "<div class='bloque-pregunta' align='center'><h1 id='pregunta' class='pregunta'>".$preguntas[$i]."</h1></div>";
 echo '<div > <input id="I" type="hidden" value="'.$i.'"></div>';
 for ($j=0; $j < 4; $j++) { 
-  echo '<button id="'.$j.'" class="opcion" name="'.$j.'" onclick="opcion(this)" data-toggle="modal" data-target="#exampleModal">'.$respuestas[$i][$j]."</button>";
+  echo '<button id="'.$j.'" class="opcion" name="'.$j.'" onclick="contar(this)" data-toggle="modal" data-target="#exampleModal">'.$respuestas[$i][$j]."</button>";
 }
 ?>
 
@@ -83,7 +83,7 @@ for ($j=0; $j < 4; $j++) {
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary boton-pop" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary boton-pop tam" onclick="reiniciaIntervalo()" data-dismiss="modal">Continuar</button>
 
       </div>
     </div>
@@ -91,6 +91,10 @@ for ($j=0; $j < 4; $j++) {
 </div>
 
 <script>
+function mifuncion() {
+  console.log("presione boton");
+}
+
   function MezclarRespuestas(vector) {
   for (var k = 0; k<100 ; k++) {
     var i = Math.floor( Math.random()*(4-0) + 0);
@@ -103,8 +107,8 @@ for ($j=0; $j < 4; $j++) {
 
 
 
-
-
+    var conteocorrecto = 0;
+    var conteoincorrecto = 0;
     var progreso = 0;
     var lista = <?php echo json_encode($preguntas);?>;
     var lista2 = <?php echo json_encode($respuestas)?>;
@@ -159,26 +163,98 @@ for ($j=0; $j < 4; $j++) {
     
     
     
-    function opcion(comp) {
+    function contar(comp) {
     let resp = parseInt(comp.name);
     if (resp == 0) {
       document.getElementById('Respuesta').src = 'img/correcto.jpg';
       clearInterval(idIterval);
+      conteocorrecto = conteocorrecto + 1;
+
     }else{
 
       clearInterval(idIterval);
       document.getElementById('Respuesta').src = 'img/incorrecto.png';
+      conteoincorrecto = conteoincorrecto + 1;
     }
+    
 
     
   }
 
+  function reiniciaIntervalo() {
+    if (i == 4){
+        c = String(conteocorrecto);
+        inc = String(conteoincorrecto);
+        window.location = "fin.php?correcto="+ c +"&incorrecto="+ inc;
+    }else{
+        clearInterval(idIterval);
+        MezclarRespuestas(indice);
+        progreso = 0;
+        $('#bar').css('width', progreso + '%');
+        document.getElementById("pregunta").innerHTML = lista[i];
+                
+        document.getElementById('0').innerHTML = lista2[i][indice[0]];
+        $("#0").attr('name',indice[0]);
+        document.getElementById('1').innerHTML = lista2[i][indice[1]];
+        $("#1").attr('name',indice[1]);
+        document.getElementById('2').innerHTML = lista2[i][indice[2]];
+        $("#2").attr('name',indice[2]);
+        document.getElementById('3').innerHTML = lista2[i][indice[3]];
+        $("#3").attr('name',indice[3]);
+        $("#I").val(i);
+        i = i +1;
+       
+        idIterval = setInterval(function(){
+            // Aumento en 10 el progeso
+            
+            progreso +=10;
+
+            $('#bar').css('width', progreso + '%');
+           
+          //Si llegó a 100 elimino el interval
+            if(progreso > 100){
+              
+             MezclarRespuestas(indice);
+
+
+
+
+              
+      
+              
+              if (i <=3) {
+                progreso = 0;
+                 $('#bar').css('width', progreso + '%');
+                 
+                 document.getElementById("pregunta").innerHTML = lista[i];
+                
+                 document.getElementById('0').innerHTML = lista2[i][indice[0]];
+                 $("#0").attr('name',indice[0]);
+                 document.getElementById('1').innerHTML = lista2[i][indice[1]];
+                 $("#1").attr('name',indice[1]);
+                 document.getElementById('2').innerHTML = lista2[i][indice[2]];
+                 $("#2").attr('name',indice[2]);
+                 document.getElementById('3').innerHTML = lista2[i][indice[3]];
+                 $("#3").attr('name',indice[3]);
+
+                 $("#I").val(i);
+                 i = i +1;
+
+                 
+              }else{
+                clearInterval(idIterval);
+              }
+           
+           
+          }
+          
+
+          },1000);
+      }
+    }
       
     </script>
 
-  <script type="text/javascript">
-
-</script>
 
 
 </body>
@@ -207,6 +283,6 @@ function traducir(vector){
   
   return vector;
 
-}
+}-->
 
 </html>
