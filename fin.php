@@ -8,5 +8,6 @@
 </head>
 <body>
 	FIN DEL JUEGO!!..
+	:)
 </body>
 </html>
