@@ -5,11 +5,15 @@
 <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css">
+  
+<script src="js/jquery.slim.min.js" type="text/javascript"></script>
+
 <script src="Bootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
 <script   src="js/jquery.min.js" ></script>
 <script src="js/jquery.simple.timer.js" type="text/javascript" ></script>
 </head>
 <body>
+
 <?php $i = 0;?>
 <?php
 function MezclarPreguntas(&$p,&$r)
@@ -55,9 +59,36 @@ MezclarPreguntas($preguntas,$respuestas);
 <?php echo "<div class='bloque-pregunta' align='center'><h1 id='pregunta' class='pregunta'>".$preguntas[$i]."</h1></div>";
 echo '<div > <input id="I" type="hidden" value="'.$i.'"></div>';
 for ($j=0; $j < 4; $j++) { 
-  echo '<button id="'.$j.'" class="opcion" name="'.$j.'">'.$respuestas[$i][$j]."</button>";
+  echo '<button id="'.$j.'" class="opcion" name="'.$j.'" onclick="opcion(this)" data-toggle="modal" data-target="#exampleModal">'.$respuestas[$i][$j]."</button>";
 }
 ?>
+
+<br>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tu Respuesta es:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div   align="center">
+          <img id="Respuesta" src="" alt="Respuesta"  class= "imagen"/>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary boton-pop" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   function MezclarRespuestas(vector) {
@@ -78,33 +109,31 @@ for ($j=0; $j < 4; $j++) {
     var lista = <?php echo json_encode($preguntas);?>;
     var lista2 = <?php echo json_encode($respuestas)?>;
     var i = 1;
+    var indice = Array(0,1,2,3);
       var idIterval = setInterval(function(){
         // Aumento en 10 el progeso
         
         progreso +=10;
-        console.log(progreso);
+
         $('#bar').css('width', progreso + '%');
        
       //Si llegó a 100 elimino el interval
         if(progreso > 100){
-          <?php $i = $i+1;?>
-          var indice = Array(0,1,2,3);
+          
          MezclarRespuestas(indice);
-         console.log(indice);
 
-         <?php echo "console.log(".$i.");"; ?>
+
+
 
           
   
-          console.log(lista2[i]);
-          console.log("i",i)
+          
           if (i <=3) {
             progreso = 0;
              $('#bar').css('width', progreso + '%');
              
              document.getElementById("pregunta").innerHTML = lista[i];
-             console.log("pregunta",lista[i]);
-             console.log("respuestas",lista2[i]);
+            
              document.getElementById('0').innerHTML = lista2[i][indice[0]];
              $("#0").attr('name',indice[0]);
              document.getElementById('1').innerHTML = lista2[i][indice[1]];
@@ -129,10 +158,27 @@ for ($j=0; $j < 4; $j++) {
       },1000);
     
     
-  
-  
+    
+    function opcion(comp) {
+    let resp = parseInt(comp.name);
+    if (resp == 0) {
+      document.getElementById('Respuesta').src = 'img/correcto.jpg';
+      clearInterval(idIterval);
+    }else{
+
+      clearInterval(idIterval);
+      document.getElementById('Respuesta').src = 'img/incorrecto.png';
+    }
+
+    
+  }
+
       
     </script>
+
+  <script type="text/javascript">
+
+</script>
 
 
 </body>
