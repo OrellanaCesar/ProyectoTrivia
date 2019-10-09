@@ -14,6 +14,7 @@
 <body>
 	<h1 class="titulo-fin">Tu Puntaje es:</h1>
 	<br>
+	<h1 class="titulo-fin" id="puntaje"></h1>
 </body>
 <script type="text/javascript">
 	function ObtenerValores(nombreVariable) {
@@ -30,7 +31,20 @@
 		return null
 
 	}
-	console.log(ObtenerValores("correcto"));
+
+	function ObtenerPuntaje() {
+		var c = ObtenerValores("correcto");
+		var m = ObtenerValores("incorrecto");
+		var suma = c*25 +(m*(-5));
+		if (suma > 0){
+			return suma;
+		}
+		else{
+			return 0;
+		}
+	}
+	console.log(ObtenerPuntaje());
+	document.getElementById("puntaje").innerHTML = ObtenerPuntaje();
 	
 	
 </script>
