@@ -32,7 +32,7 @@
 		  </div>
 		  <div class="col-md-6">
 		  	
-            	<a href="#" class="boton_personalizado salir" onclick="location.href='juego.php'">Salir</a>
+            	<a href="#" class="boton_personalizado salir" onclick="location.href='index.html'">Salir</a>
         	
 		  </div>
 	</div>
