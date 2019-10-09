@@ -7,13 +7,29 @@
   font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
+.respuestas{
+    text-align: center;
+    padding-left: 50px;
+    font-size: 4em !important;
+}
+
+.correctas{
+  text-align: center;
+  color: #4CAF50 !important;
+}
+
+.incorrectas{
+  text-align: center;
+  color:rgb(231, 102, 93) !important;
+}
+
 .titulo-fin{
   text-align: center;
   font-style:italic !important;
   font-weight:bold !important;
   padding-top: 70px;
   font-size:8em !important;
-  color:#606265 !important;
+  color:#606265  !important;
   font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
@@ -22,8 +38,8 @@
   font-style:italic !important;
   font-weight:bold !important;
   padding-top: 70px;
-  font-size:8em !important;
-  color:#606265 !important;
+  font-size:12em !important;
+  color: #efb810!important;
   font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
@@ -52,6 +68,29 @@
 
 }
 
+.boton_personalizado{
+  padding: 50px;
+  font-weight: 600;
+  font-size: 35px;
+  margin-left: 125px;
+  color: #d7e7ff ;
+  border-radius: 40px;
+  
+}
+.jugar{
+  background-color: #18ba29 !important;
+  border: 2px solid #18ba29;
+}
+
+.salir{
+ background-color: #ba2b18 !important; 
+ border: 2px solid #ba2b18;
+}
+
+.boton_personalizado:hover{
+  color: #1883ba;
+  background-color: #ffffff;
+}
 
 .imagen{
 	padding-top: 50px;

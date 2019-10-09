@@ -14,7 +14,28 @@
 <body>
 	<h1 class="titulo-fin">Tu Puntaje es:</h1>
 	<br>
-	<h1 class="titulo-fin" id="puntaje"></h1>
+	<h1 class="puntaje" id="puntaje"></h1>
+	<br>
+
+		<h1 class="titulo respuestas correctas">Respuestas Correctas</h1>
+		<h1 class="titulo respuestas correctas" id="correctas"></h1>
+	<br><br><br>
+	
+	<h1 class="titulo respuestas incorrectas">Respuestas Incorrectas</h1>
+	<h1 class="titulo respuestas incorrectas" id="incorrectas"></h1>
+	<br><br><br><br><br><br><br><br><br>
+	<div class="row">
+		  <div class="col-md-6">
+		  	
+            	<a href="#" class="boton_personalizado jugar"onclick="location.href='juego.php'">Volver a Jugar</a>
+        	
+		  </div>
+		  <div class="col-md-6">
+		  	
+            	<a href="#" class="boton_personalizado salir" onclick="location.href='juego.php'">Salir</a>
+        	
+		  </div>
+	</div>
 </body>
 <script type="text/javascript">
 	function ObtenerValores(nombreVariable) {
@@ -45,6 +66,8 @@
 	}
 	console.log(ObtenerPuntaje());
 	document.getElementById("puntaje").innerHTML = ObtenerPuntaje();
+	document.getElementById("correctas").innerHTML = ObtenerValores("correcto");
+	document.getElementById("incorrectas").innerHTML = ObtenerValores("incorrecto");
 	
 	
 </script>
