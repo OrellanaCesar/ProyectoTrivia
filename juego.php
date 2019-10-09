@@ -111,6 +111,7 @@ function mifuncion() {
     var conteoincorrecto = 0;
     var progreso = 0;
     var lista = <?php echo json_encode($preguntas);?>;
+    console.log("tamaño:",lista.length);
     var lista2 = <?php echo json_encode($respuestas)?>;
     var i = 1;
     var indice = Array(0,1,2,3);
@@ -123,7 +124,7 @@ function mifuncion() {
        
       //Si llegó a 100 elimino el interval
         if(progreso > 100){
-          
+         conteoincorrecto = conteoincorrecto + 1; 
          MezclarRespuestas(indice);
 
 
@@ -132,7 +133,7 @@ function mifuncion() {
           
   
           
-          if (i <=3) {
+          if (i <=(lista.length -1)) {
             progreso = 0;
              $('#bar').css('width', progreso + '%');
              
@@ -182,7 +183,7 @@ function mifuncion() {
   }
 
   function reiniciaIntervalo() {
-    if (i == 4){
+    if (i == lista.length){
         c = String(conteocorrecto);
         inc = String(conteoincorrecto);
         window.location = "fin.php?correcto="+ c +"&incorrecto="+ inc;
@@ -213,7 +214,7 @@ function mifuncion() {
            
           //Si llegó a 100 elimino el interval
             if(progreso > 100){
-              
+             conteoincorrecto = conteoincorrecto + 1;  
              MezclarRespuestas(indice);
 
 
@@ -222,7 +223,7 @@ function mifuncion() {
               
       
               
-              if (i <=3) {
+              if (i <=(lista.length - 1)) {
                 progreso = 0;
                  $('#bar').css('width', progreso + '%');
                  
@@ -258,31 +259,5 @@ function mifuncion() {
 
 
 </body>
-<!--<script >
-
-function traducir(vector){
-  for (var i = 0; i < vector.length; i++) {
-    vector[i] =vector[i].replace('¿','\u00BF');
-
-    vector[i] = vector[i].replace('á','\u00E1');
-    vector[i] = vector[i].replace('é','\u00E9');
-    vector[i] = vector[i].replace('í','\u00ED');
-    vector[i] = vector[i].replace('ó','\u00f3');
-    vector[i] = vector[i].replace('ú','\u00fa');
-
-    vector[i] = vector[i].replace('Á','\u00c1');
-    vector[i] = vector[i].replace('É','\u00c9');
-    vector[i] = vector[i].replace('Í','\u00cd');
-    vector[i] = vector[i].replace('Ó','\u00d3');
-    vector[i] = vector[i].replace('Ú','\u00da');
-
-    vector[i] = vector[i].replace('ñ','\u00f1');
-    vector[i] = vector[i].replace('Ñ','\u00d1');
-
-  }
-  
-  return vector;
-
-}-->
 
 </html>

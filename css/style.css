@@ -7,6 +7,16 @@
   font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
 }
 
+.titulo-fin{
+  text-align: center;
+  font-style:italic !important;
+  font-weight:bold !important;
+  padding-top: 70px;
+  font-size:8em !important;
+  color:#606265 !important;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif !important;
+}
+
 .tam{
   font-size: 40px !important;
 }
