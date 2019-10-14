@@ -1,4 +1,20 @@
-60,33,45,Ninguno de los anteriores
-1440,1402,1200,Ninguno de los anteriores
-ocho,seis,cuatro,Ninguno de los anteriores
-Amazonas,Bermejo,Pilcomayo,Ninguno de los anteriores
+60;33;45;Ninguno de los anteriores
+1440;1402;1200;Ninguno de los anteriores
+ocho;seis;cuatro;Ninguno de los anteriores
+Amazonas;Bermejo;Pilcomayo;Ninguno de los anteriores
+4;6;8;2
+12;1;4;Ninguno de los anteriores
+America;Africa;Europa;Oceania
+27;12;18;Ninguno de los anteriores
+6;5;7;4
+Brasil;Argentina;Paraguay;Uruguay
+24;12;32;6
+Los 3 lados iguales;Los 3 lados diferentes;Dos lados iguales;Un ángulo recto
+6;3;4;8
+Todos los anteriores;Bolivia;Chile;Uruguay
+Ciudad Autónoma de Buenos Aires;Cordoba;Rosario;Ninguno de los anterires
+23;30;20;25
+Peso;Dolar;Euro;Real
+Por ser el más ancho del mundo;Por su trafico maritimo;Por ser el mas largo de Sudamérica;Ninguno de los anterires
+España;Inglaterra;Francia;Portugal
+Todas las anteriores;Salta;Mendoza;San Juan

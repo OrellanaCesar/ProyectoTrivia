@@ -18,10 +18,10 @@
 <?php
 function MezclarPreguntas(&$p,&$r)
 {
-  
+  $t = sizeof($p); 
   for ($i=0; $i <100 ; $i++) { 
-    $k = rand(0,3);
-    $l = rand(0,3);
+    $k = rand(0,$t-1);
+    $l = rand(0,$t-1);
 
     $aux = $p[$k];
     $aux2 = $r[$k];
@@ -42,7 +42,7 @@ while (!feof($arch_pregutnas) and !feof($arch_respuestas)){
     $linea_p = fgets($arch_pregutnas);
     array_push($preguntas,$linea_p);
     $linea_r = fgets($arch_respuestas);
-    $data_r = explode(",",$linea_r);
+    $data_r = explode(";",$linea_r);
     array_push($respuestas,$data_r);
 }
 fclose($arch_pregutnas);
@@ -91,11 +91,8 @@ for ($j=0; $j < 4; $j++) {
 </div>
 
 <script>
-function mifuncion() {
-  console.log("presione boton");
-}
 
-  function MezclarRespuestas(vector) {
+  function MezclarRespuestas(vector){  
   for (var k = 0; k<100 ; k++) {
     var i = Math.floor( Math.random()*(4-0) + 0);
     var j = Math.floor( Math.random()*(4-0) + 0);
@@ -117,7 +114,12 @@ function mifuncion() {
     var indice = Array(0,1,2,3);
       var idIterval = setInterval(function(){
         // Aumento en 10 el progeso
-        
+        if (i == lista.length){
+          c = String(conteocorrecto);
+        inc = String(conteoincorrecto);
+        window.location = "fin.php?correcto="+ c +"&incorrecto="+ inc;
+        }
+        else{
         progreso +=10;
 
         $('#bar').css('width', progreso + '%');
@@ -138,15 +140,40 @@ function mifuncion() {
              $('#bar').css('width', progreso + '%');
              
              document.getElementById("pregunta").innerHTML = lista[i];
+             if (lista2[i][indice[0]].length > 27){
+              $("#0").css("font-size","28px");
+             }else{
+          $("#0").css("font-size","40px");
+        }
+             if(lista2[i][indice[1]].length > 27){
+                $("#1").css("font-size","28px");
+             }else{
+          $("#1").css("font-size","40px");
+        }
+             if(lista2[i][indice[2]].length > 27){
+                $("#2").css("font-size","28px");
+             }else{
+          $("#2").css("font-size","40px");
+        }
+             if(lista2[i][indice[3]].length > 27){
+                $("#3").css("font-size","28px");
+             }else{
+          $("#3").css("font-size","40px");
+        }
             
              document.getElementById('0').innerHTML = lista2[i][indice[0]];
              $("#0").attr('name',indice[0]);
+             console.log("Nombre:"+lista2[i][indice[0]]+" longitud: "+lista2[i][indice[0]].length)
              document.getElementById('1').innerHTML = lista2[i][indice[1]];
              $("#1").attr('name',indice[1]);
+              console.log("Nombre:"+lista2[i][indice[1]]+" longitud: "+lista2[i][indice[1]].length)
+
              document.getElementById('2').innerHTML = lista2[i][indice[2]];
              $("#2").attr('name',indice[2]);
+              console.log("Nombre:"+lista2[i][indice[2]]+" longitud: "+lista2[i][indice[2]].length)
              document.getElementById('3').innerHTML = lista2[i][indice[3]];
              $("#3").attr('name',indice[3]);
+              console.log("Nombre:"+lista2[i][indice[3]]+" longitud: "+lista2[i][indice[3]].length)
 
              $("#I").val(i);
              i = i +1;
@@ -160,7 +187,8 @@ function mifuncion() {
       }
       
 
-      },1000);
+      }
+    },1000);
     
     
     
@@ -190,6 +218,29 @@ function mifuncion() {
     }else{
         clearInterval(idIterval);
         MezclarRespuestas(indice);
+        if (lista2[i][indice[0]].length > 27){
+              $("#0").css("font-size","28px");
+        }else{
+          $("#0").css("font-size","40px");
+        }
+             
+       if(lista2[i][indice[1]].length > 27){
+          $("#1").css("font-size","28px");
+       }else{
+          $("#1").css("font-size","40px");
+        }
+             if(lista2[i][indice[2]].length > 27){
+                $("#2").css("font-size","28px");
+             }
+             else{
+          $("#2").css("font-size","40px");
+        }
+             if(lista2[i][indice[3]].length > 27){
+                $("#3").css("font-size","28px");
+             }
+             else{
+          $("#4").css("font-size","40px");
+        }
         progreso = 0;
         $('#bar').css('width', progreso + '%');
         document.getElementById("pregunta").innerHTML = lista[i];
@@ -228,6 +279,28 @@ function mifuncion() {
                  $('#bar').css('width', progreso + '%');
                  
                  document.getElementById("pregunta").innerHTML = lista[i];
+                 if (lista2[i][indice[0]].length > 27){
+              $("#0").css("font-size","28px");
+             }
+             else{
+          $("#0").css("font-size","40px");
+        }
+             if(lista2[i][indice[1]].length > 27){
+                $("#1").css("font-size","28px");
+             }
+             else{
+          $("#1").css("font-size","40px");
+        }
+             if(lista2[i][indice[2]].length > 27){
+                $("#2").css("font-size","28px");
+             }else{
+          $("#2").css("font-size","40px");
+        }
+             if(lista2[i][indice[3]].length > 27){
+                $("#3").css("font-size","28px");
+             }else{
+          $("#3").css("font-size","40px");
+        }
                 
                  document.getElementById('0').innerHTML = lista2[i][indice[0]];
                  $("#0").attr('name',indice[0]);
